@@ -1,20 +1,15 @@
-# azcamconsole config file for mont4k
+# azcamconsole config file for OSU4k
 
 import os
-import sys
 import datetime
 import threading
-
-from PySide2.QtWidgets import QApplication
 
 import azcam
 import azcam.console
 import azcam.shortcuts_console
 from azcam.displays.ds9display import Ds9Display
 from azcam import db, api
-from azcam_focus import Focus
-from azcam_observe import Observe
-from genpars import GenPars
+from azcam.genpars import GenPars
 
 azcam.log("Loading azcam-OSU4k environment")
 
@@ -42,18 +37,6 @@ azcam.log(f"Configuring console for {azcam.db.systemname}")
 display = Ds9Display()
 dthread = threading.Thread(target=display.initialize, args=[])
 dthread.start()  # thread just for speed
-
-# ****************************************************************
-# create Qt app
-# ****************************************************************
-app = QApplication(sys.argv)
-azcam.db.qtapp = app
-
-# ****************************************************************
-# observe script
-# ****************************************************************
-observe = Observe()
-azcam.db.cli_cmds["observe"] = observe
 
 # ****************************************************************
 # try to connect to azcam

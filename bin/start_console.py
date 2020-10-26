@@ -9,7 +9,7 @@ import sys
 
 # select which python to use (virtual environments)
 # python = "/data/code/venvs/qt/Scripts/ipython.exe"
-python = "/python37/Scripts/ipython.exe"
+python = "/python38/Scripts/ipython.exe"
 interactive = "-i"  # "-i" or ""
 
 # parse arguments for command script
