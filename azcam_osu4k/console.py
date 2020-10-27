@@ -70,5 +70,5 @@ azcam.db.cli_cmds.update({"azcam": azcam, "db": db, "api": api})
 # ****************************************************************
 # clean namespace
 # # ****************************************************************
-del azcam.focalplane, azcam.displays, azcam.shortcuts
+del azcam.focalplane, azcam.shortcuts
 del azcam.header, azcam.image

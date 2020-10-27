@@ -15,8 +15,8 @@ import azcam.shortcuts
 from azcam.cmdserver import CommandServer
 from azcam.genpars import GenPars
 from azcam.header import Header
-from azcam.instruments.instrument import Instrument
-from azcam.telescopes.telescope import Telescope
+from azcam.instrument import Instrument
+from azcam.telescope import Telescope
 
 # ****************************************************************
 # parse command line arguments
