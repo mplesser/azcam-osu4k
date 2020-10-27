@@ -2,20 +2,18 @@ import os
 import sys
 import datetime
 
-from PySide2.QtWidgets import QApplication
-from genpars import GenPars
-
 import azcam
 import azcam.server
-import azcam.shortcuts_server
-from azcam.displays.ds9display import Ds9Display
+import azcam.shortcuts
+from azcam.header import Header
+from azcam.genpars import GenPars
 from azcam.telescopes.telescope import Telescope
 from azcam.cmdserver import CommandServer
-from azcam.systemheader import SystemHeader
-from azcam.controllers.controller_archon import ControllerArchon
-from azcam.exposures.exposure_archon import ExposureArchon
+from azcam_ds9.ds9display import Ds9Display
+from azcam_archon.controller_archon import ControllerArchon
+from azcam_archon.exposure_archon import ExposureArchon
 from azcam.instruments.instrument import Instrument
-from azcam.tempcons.tempcon_archon import TempConArchon
+from azcam_archon.tempcon_archon import TempConArchon
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 from azcam_osu4k.osu4k_custom import OSU4k
@@ -61,12 +59,6 @@ azcam.log(f"Starting command server listening on port {cmdserver.port}")
 cmdserver.start()
 
 # ****************************************************************
-# create Qt app
-# ****************************************************************
-app = QApplication(sys.argv)
-azcam.db.qtapp = app
-
-# ****************************************************************
 # display
 # ****************************************************************
 display = Ds9Display()
@@ -77,7 +69,9 @@ display = Ds9Display()
 controller = ControllerArchon()
 controller.camserver.port = 4242
 controller.camserver.host = "10.0.0.2"
-controller.timing_file = os.path.join(azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf")
+controller.timing_file = os.path.join(
+    azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf"
+)
 controller.reset_flag = 1  # 0 for soft reset, 1 to upload code
 
 # ****************************************************************
@@ -111,8 +105,8 @@ exposure.filename.folder = azcam.db.datafolder
 # header
 # ****************************************************************
 template = os.path.join(azcam.db.datafolder, "templates", "FitsTemplate_OSU4k.txt")
-system = SystemHeader("OSU4k", template)
-system.set_header("system", system)
+sysheader = Header("OSU4k", template)
+sysheader.set_header("system", 0)
 
 # ****************************************************************
 # detector

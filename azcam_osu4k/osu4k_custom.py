@@ -24,7 +24,7 @@ class OSU4k(object):
 
     def initialize(self):
         """
-        Initialize OSU4k stuff. 
+        Initialize OSU4k stuff.
         """
 
         return

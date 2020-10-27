@@ -6,10 +6,10 @@ import threading
 
 import azcam
 import azcam.console
-import azcam.shortcuts_console
-from azcam.displays.ds9display import Ds9Display
+import azcam.shortcuts
 from azcam import db, api
 from azcam.genpars import GenPars
+from azcam_ds9.ds9display import Ds9Display
 
 azcam.log("Loading azcam-OSU4k environment")
 
@@ -69,5 +69,5 @@ azcam.db.cli_cmds.update({"azcam": azcam, "db": db, "api": api})
 # ****************************************************************
 # clean namespace
 # # ****************************************************************
-del azcam.focalplane, azcam.displays, azcam.shortcuts_console
+del azcam.focalplane, azcam.displays, azcam.shortcuts
 del azcam.header, azcam.image
