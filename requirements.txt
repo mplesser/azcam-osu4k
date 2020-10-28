@@ -1,5 +1,0 @@
-numpy
-ipython
--e /azcam/azcam
--e /azcam/azcam-archon
--e .
