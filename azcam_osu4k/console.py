@@ -28,8 +28,8 @@ azcam.db.parfile = f"{azcam.db.datafolder}/parameters_{azcam.db.systemname}.ini"
 # start logging
 # ****************************************************************
 tt = datetime.datetime.strftime(datetime.datetime.now(), "%d%b%y_%H%M%S")
-azcam.db.logfile = os.path.join(db.datafolder, "logs", f"console_{tt}.log")
-azcam.utils.start_logging(db.logfile)
+azcam.db.logfile = os.path.join(azcam.db.datafolder, "logs", f"console_{tt}.log")
+azcam.logging.start_logging(azcam.db.logfile)
 azcam.log(f"Configuring console for {azcam.db.systemname}")
 
 # ****************************************************************
@@ -51,16 +51,11 @@ else:
 # ****************************************************************
 # read par file
 # ****************************************************************
-azcam.db.genpars = GenPars(azcam.db.parfile, "azcamconsole")
-azcam.db.genpars.parfile_read()
-azcam.utils.update_pars(0, azcam.db.genpars.parfile_dict["azcamconsole"])
-wd = azcam.db.genpars.get_par("azcamconsole", "wd", "default")
+genpars = GenPars()
+pardict = genpars.parfile_read(azcam.db.parfile)["azcamconsole"]
+azcam.utils.update_pars(0, pardict)
+wd = genpars.get_par(pardict, "wd", "default")
 azcam.utils.curdir(wd)
-
-# ****************************************************************
-# add scripts to sys.path for Run
-# ****************************************************************
-azcam.utils.add_searchfolder(os.path.join(azcam.db.systemfolder, "scripts"))
 
 # ****************************************************************
 # define names to imported into namespace when using cli

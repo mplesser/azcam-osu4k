@@ -14,11 +14,11 @@ class OSU4k(object):
 
     def __init__(self):
         """
-        Creates OSU4k object.
+        Creates osu4k object.
         """
 
-        azcam.db.cmd_objects["osu4k"] = self
-        azcam.db.osu4k = self
+        azcam.api.osu4k = self
+        azcam.db.cli_cmds["osu4k"] = self
 
         return
 

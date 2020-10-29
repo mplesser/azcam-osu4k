@@ -2,21 +2,19 @@ import datetime
 import os
 import sys
 
-from azcam_archon.controller_archon import ControllerArchon
-from azcam_archon.exposure_archon import ExposureArchon
-from azcam_archon.tempcon_archon import TempConArchon
-from azcam_ds9.ds9display import Ds9Display
-from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
-from azcam_osu4k.osu4k_custom import OSU4k
-
-import azcam
-import azcam.server
+from azcam.server import azcam
 import azcam.shortcuts
 from azcam.cmdserver import CommandServer
 from azcam.genpars import GenPars
 from azcam.header import Header
 from azcam.instrument import Instrument
 from azcam.telescope import Telescope
+from azcam_archon.controller_archon import ControllerArchon
+from azcam_archon.exposure_archon import ExposureArchon
+from azcam_archon.tempcon_archon import TempConArchon
+from azcam_ds9.ds9display import Ds9Display
+from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
+from azcam_osu4k.osu4k_custom import OSU4k
 
 # ****************************************************************
 # parse command line arguments
@@ -25,7 +23,7 @@ try:
     i = sys.argv.index("-system")
     option = sys.argv[i + 1]
 except ValueError:
-    option = "menu"
+    option = None
 
 # ****************************************************************
 # define folders for system
@@ -45,9 +43,10 @@ azcam.db.parfile = os.path.join(
 # ****************************************************************
 tt = datetime.datetime.strftime(datetime.datetime.now(), "%d%b%y_%H%M%S")
 azcam.db.logfile = os.path.join(azcam.db.datafolder, "logs", f"server_{tt}.log")
-azcam.utils.start_logging(azcam.db.logfile, "123")
+azcam.logging.start_logging(azcam.db.logfile, "123")
+azcam.log(f"Configuring {azcam.db.systemname}")
 
-azcam.log(f"Configuring for {option}")
+azcam.log(f"Configuring server for OSU4k")
 
 # ****************************************************************
 # define and start command server
@@ -128,10 +127,11 @@ telescope.enabled = 0
 # ****************************************************************
 # read par file
 # ****************************************************************
-azcam.db.genpars = GenPars(azcam.db.parfile, "azcamserver")
-azcam.db.genpars.parfile_read()
-azcam.utils.update_pars(0, azcam.db.genpars.parfile_dict["azcamserver"])
-wd = azcam.db.genpars.get_par("azcamserver", "wd", "default")
+parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
+genpars = GenPars()
+pardict = genpars.parfile_read(parfile)["azcamserver"]
+azcam.utils.update_pars(0, pardict)
+wd = genpars.get_par(pardict, "wd", "default")
 azcam.utils.curdir(wd)
 
 
