@@ -2,20 +2,20 @@ import datetime
 import os
 import sys
 
+from azcam.server import azcam
+import azcam.shortcuts
+from azcam.cmdserver import CommandServer
+from azcam.genpars import GenPars
+from azcam.header import Header
+from azcam.instrument import Instrument
+from azcam.telescope import Telescope
+
 from azcam_archon.controller_archon import ControllerArchon
 from azcam_archon.exposure_archon import ExposureArchon
 from azcam_archon.tempcon_archon import TempConArchon
 from azcam_ds9.ds9display import Ds9Display
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 from azcam_osu4k.osu4k_custom import OSU4k
-
-import azcam.shortcuts
-from azcam.cmdserver import CommandServer
-from azcam.genpars import GenPars
-from azcam.header import Header
-from azcam.instrument import Instrument
-from azcam.server import azcam
-from azcam.telescope import Telescope
 
 # ****************************************************************
 # parse command line arguments
