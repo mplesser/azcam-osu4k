@@ -6,7 +6,7 @@ from azcam.server import azcam
 import azcam.shortcuts
 from azcam.cmdserver import CommandServer
 from azcam.genpars import GenPars
-from azcam.header import Header
+from azcam.system import System
 from azcam.instrument import Instrument
 from azcam.telescope import Telescope
 
@@ -86,11 +86,6 @@ tempcon = TempConArchon()
 controller.heater_board_installed = 1
 
 # ****************************************************************
-# dewar
-# ****************************************************************
-controller.header.set_keyword("DEWAR", "OSU4k", "Dewar name")
-
-# ****************************************************************
 # exposure
 # ****************************************************************
 filetype = "FITS"
@@ -105,8 +100,8 @@ exposure.filename.folder = azcam.db.datafolder
 # header
 # ****************************************************************
 template = os.path.join(azcam.db.datafolder, "templates", "FitsTemplate_OSU4k.txt")
-sysheader = Header("OSU4k", template)
-sysheader.set_header("system", 0)
+system = System("OSU4k", template)
+system.set_keyword("DEWAR", "OSU4k", "Dewar name")
 
 # ****************************************************************
 # detector
