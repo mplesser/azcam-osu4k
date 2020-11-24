@@ -12,8 +12,6 @@ import azcam.shortcuts
 from azcam import api, db
 from azcam.genpars import GenPars
 
-azcam.log("Loading azcam-OSU4k environment")
-
 # ****************************************************************
 # files and folders
 # ****************************************************************
