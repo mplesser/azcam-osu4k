@@ -56,11 +56,6 @@ wd = genpars.get_par(pardict, "wd", "default")
 azcam.utils.curdir(wd)
 
 # ****************************************************************
-# define names to imported into namespace when using cli
-# # ****************************************************************
-azcam.db.cli_cmds.update({"azcam": azcam, "db": db, "api": api})
-
-# ****************************************************************
 # clean namespace
 # # ****************************************************************
 del azcam.focalplane, azcam.shortcuts
