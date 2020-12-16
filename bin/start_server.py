@@ -22,7 +22,7 @@ else:
 configscript = "azcam_osu4k.server"
 
 profile = "azcamserver"
-import_command = f"import {configscript}; from azcam.cli import *; del azcam.cli"
+import_command = f"import {configscript}; from azcam.cli import *"
 
 # execute
 cl = (

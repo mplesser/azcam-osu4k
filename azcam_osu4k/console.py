@@ -9,7 +9,6 @@ from azcam_ds9.ds9display import Ds9Display
 import azcam
 import azcam.console
 import azcam.shortcuts
-from azcam import api, db
 from azcam.genpars import GenPars
 
 # ****************************************************************

@@ -2,7 +2,8 @@ import datetime
 import os
 import sys
 
-from azcam.server import azcam
+import azcam
+import azcam.server
 import azcam.shortcuts
 from azcam.cmdserver import CommandServer
 from azcam.genpars import GenPars
@@ -35,7 +36,9 @@ azcam.db.systemfolder = azcam.utils.fix_path(azcam.db.systemfolder)
 azcam.db.datafolder = os.path.join("/data", azcam.db.systemname)
 azcam.db.datafolder = azcam.utils.fix_path(azcam.db.datafolder)
 azcam.db.verbosity = 2  # useful for controller status
-azcam.db.parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
+azcam.db.parfile = os.path.join(
+    azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini"
+)
 
 # ****************************************************************
 # enable logging
@@ -67,7 +70,9 @@ display = Ds9Display()
 controller = ControllerArchon()
 controller.camserver.port = 4242
 controller.camserver.host = "10.0.0.2"
-controller.timing_file = os.path.join(azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf")
+controller.timing_file = os.path.join(
+    azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf"
+)
 controller.reset_flag = 1  # 0 for soft reset, 1 to upload code
 
 # ****************************************************************
