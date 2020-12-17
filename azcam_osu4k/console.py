@@ -9,7 +9,6 @@ from azcam_ds9.ds9display import Ds9Display
 import azcam
 import azcam.console
 import azcam.shortcuts
-from azcam.genpars import GenPars
 
 # ****************************************************************
 # files and folders
@@ -48,10 +47,9 @@ else:
 # ****************************************************************
 # read par file
 # ****************************************************************
-genpars = GenPars()
-pardict = genpars.parfile_read(azcam.db.parfile)["azcamconsole"]
+pardict = azcam.api.config.parfile_read(azcam.db.parfile)["azcamconsole"]
 azcam.utils.update_pars(0, pardict)
-wd = genpars.get_par(pardict, "wd", "default")
+wd = azcam.api.config.get_par(pardict, "wd", "default")
 azcam.utils.curdir(wd)
 
 # ****************************************************************

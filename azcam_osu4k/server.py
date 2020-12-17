@@ -6,7 +6,6 @@ import azcam
 import azcam.server
 import azcam.shortcuts
 from azcam.cmdserver import CommandServer
-from azcam.genpars import GenPars
 from azcam.system import System
 from azcam.instrument import Instrument
 from azcam.telescope import Telescope
@@ -36,9 +35,7 @@ azcam.db.systemfolder = azcam.utils.fix_path(azcam.db.systemfolder)
 azcam.db.datafolder = os.path.join("/data", azcam.db.systemname)
 azcam.db.datafolder = azcam.utils.fix_path(azcam.db.datafolder)
 azcam.db.verbosity = 2  # useful for controller status
-azcam.db.parfile = os.path.join(
-    azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini"
-)
+azcam.db.parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
 
 # ****************************************************************
 # enable logging
@@ -70,9 +67,7 @@ display = Ds9Display()
 controller = ControllerArchon()
 controller.camserver.port = 4242
 controller.camserver.host = "10.0.0.2"
-controller.timing_file = os.path.join(
-    azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf"
-)
+controller.timing_file = os.path.join(azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf")
 controller.reset_flag = 1  # 0 for soft reset, 1 to upload code
 
 # ****************************************************************
@@ -125,10 +120,9 @@ telescope.enabled = 0
 # read par file
 # ****************************************************************
 parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
-genpars = GenPars()
-pardict = genpars.parfile_read(parfile)["azcamserver"]
+pardict = azcam.api.config.parfile_read(parfile)["azcamserver"]
 azcam.utils.update_pars(0, pardict)
-wd = genpars.get_par(pardict, "wd", "default")
+wd = azcam.api.config.get_par(pardict, "wd", "default")
 azcam.utils.curdir(wd)
 
 
