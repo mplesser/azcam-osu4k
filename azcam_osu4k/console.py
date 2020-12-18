@@ -8,7 +8,7 @@ from azcam_ds9.ds9display import Ds9Display
 
 import azcam
 import azcam.console
-import azcam.shortcuts
+import azcam.shortcuts_console
 
 # ****************************************************************
 # files and folders
@@ -55,5 +55,3 @@ azcam.utils.curdir(wd)
 # ****************************************************************
 # clean namespace
 # # ****************************************************************
-del azcam.focalplane, azcam.shortcuts
-del azcam.header, azcam.image
