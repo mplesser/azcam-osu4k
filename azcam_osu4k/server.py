@@ -120,10 +120,8 @@ telescope.enabled = 0
 # read par file
 # ****************************************************************
 parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
-pardict = azcam.api.config.parfile_read(parfile)["azcamserver"]
-azcam.utils.update_pars(0, pardict)
-wd = azcam.api.config.get_par(pardict, "wd", "default")
-azcam.utils.curdir(wd)
+pardict = azcam.api.config.parfile_read(parfile)
+azcam.api.config.update_pars(0, pardict["azcamserver"])
 
 
 # ****************************************************************
