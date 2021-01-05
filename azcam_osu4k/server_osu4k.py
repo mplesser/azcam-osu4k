@@ -14,8 +14,6 @@ from azcam_archon.controller_archon import ControllerArchon
 from azcam_archon.exposure_archon import ExposureArchon
 from azcam_archon.tempcon_archon import TempConArchon
 from azcam_ds9.ds9display import Ds9Display
-from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
-from azcam_osu4k.osu4k_custom import OSU4k
 
 # ****************************************************************
 # parse command line arguments
@@ -36,6 +34,11 @@ azcam.db.datafolder = os.path.join("/data", azcam.db.systemname)
 azcam.db.datafolder = azcam.utils.fix_path(azcam.db.datafolder)
 azcam.db.verbosity = 2  # useful for controller status
 parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
+
+# ****************************************************************
+# add folders to search path
+# ****************************************************************
+azcam.utils.add_searchfolder(azcam.db.systemfolder, 0)
 
 # ****************************************************************
 # enable logging
@@ -102,6 +105,8 @@ system.set_keyword("DEWAR", "OSU4k", "Dewar name")
 # ****************************************************************
 # detector
 # ****************************************************************
+from detector_sta0500_osu4k import detector_sta0500_1amp
+
 exposure.set_detpars(detector_sta0500_1amp)
 exposure.fileconverter.set_detector_config(detector_sta0500_1amp)
 
@@ -127,6 +132,8 @@ azcam.api.config.update_pars(0, "azcamserver")
 # ****************************************************************
 # custom OSU4k commands
 # ****************************************************************
+from osu4k_custom import OSU4k
+
 osu4k = OSU4k()
 azcam.db.cli_cmds["osu4k"] = osu4k
 

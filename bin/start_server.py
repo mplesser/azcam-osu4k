@@ -7,9 +7,14 @@ Usage: Execute this file from File Explorer
 import os
 import sys
 
+from pathlib import Path, PurePosixPath
+
+rootfolder = Path(__file__).resolve().parent.parent
+rootfolder = rootfolder / "azcam_osu4k"
+rootfolder = str(PurePosixPath(rootfolder))
+
 # select which python to use (virtual environments)
-# python = "/data/code/venvs/qt/Scripts/ipython.exe"
-python = "/python38/Scripts/ipython.exe"
+python = "ipython.exe"
 interactive = "-i"  # "-i" or ""
 
 # parse arguments for command script
@@ -17,12 +22,11 @@ if len(sys.argv) > 1:
     arguments = sys.argv[1:]
 else:
     arguments = [""]
-    # arguments = ["-system VIRUS -data \data"]
 
-configscript = "azcam_osu4k.server"
+profile = "azcamconsole"
 
-profile = "azcamserver"
-import_command = f"import {configscript}; from azcam.cli import *"
+imports = f"import sys; sys.path.append('{rootfolder}')"
+import_command = f"{imports};import server_osu4k; from azcam.cli import *"
 
 # execute
 cl = (

@@ -1,20 +1,18 @@
-# osu4k
+# azcam-osu4k
 
 ## Purpose
 
-This repository contains *azcam* files for the OSU4k CCD camera.
+This repository contains *azcam-osu4k* *azcam* environment. It contains code and data files for the OSU4k camera system.
 
-## Installation Examples and Notes
+## Installation Example
 
-* `python -m venv env`
-* `.\venv\Scripts\activate.bat`
-* `pip install -r requirements.txt`
+`git clone https://github.com/uaitl/azcam-osu4k`
 
+For Windows systems this code is usually cloned into `c:\azcam\azcam-osu4k`.
 ## Links
 
-* [Web pages for OSU4k on GitHib](https://mplesser.github.io/osu4k)
-* [Repository on GitHub](https://github.com/mplesser/osu4k)
-* [AzCam web site](http://www.itl.arizona.edu/doku.php?id=azcam)
+* [Repository on GitHub](https://github.com/mplesser/azcam-osu4k)
+* [AzCam web site](https://mplesser.github.io/azcam/)
 * [STA Archon controller page](http://www.sta-inc.net/archon)
 
 ## Usage Example
