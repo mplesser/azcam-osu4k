@@ -70,7 +70,9 @@ display = Ds9Display()
 controller = ControllerArchon()
 controller.camserver.port = 4242
 controller.camserver.host = "10.0.0.2"
-controller.timing_file = os.path.join(azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf")
+controller.timing_file = os.path.join(
+    azcam.db.systemfolder, "archon_code", "OSU4k_1amp.acf"
+)
 controller.reset_flag = 1  # 0 for soft reset, 1 to upload code
 
 # ****************************************************************
