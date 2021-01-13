@@ -8,7 +8,7 @@ This repository contains *azcam-osu4k* *azcam* environment. It contains code and
 
 `git clone https://github.com/uaitl/azcam-osu4k`
 
-For Windows systems this code is usually cloned into `c:\azcam\azcam-osu4k`.
+For Windows systems the normal destination is `c:\azcam\azcam-osu4k`.
 
 ## Links
 
