@@ -43,7 +43,7 @@ dthread.start()  # thread just for speed
 # ****************************************************************
 # try to connect to azcam
 # ****************************************************************
-connected = azcam.api.server.connect()  # default host and port
+connected = azcam.db.api.server.connect()  # default host and port
 if connected:
     azcam.log("Connected to azcamserver")
 else:
@@ -52,8 +52,8 @@ else:
 # ****************************************************************
 # read par file
 # ****************************************************************
-pardict = azcam.api.config.read_parfile(parfile)
-azcam.api.config.update_pars(0, "azcamconsole")
+pardict = azcam.db.config.read_parfile(parfile)
+azcam.db.config.update_pars(0, "azcamconsole")
 
 # ****************************************************************
 # clean namespace

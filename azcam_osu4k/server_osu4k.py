@@ -124,8 +124,8 @@ telescope.enabled = 0
 # read par file
 # ****************************************************************
 parfile = os.path.join(azcam.db.datafolder, f"parameters_{azcam.db.systemname}.ini")
-pardict = azcam.api.config.read_parfile(parfile)
-azcam.api.config.update_pars(0, "azcamserver")
+pardict = azcam.db.config.read_parfile(parfile)
+azcam.db.config.update_pars(0, "azcamserver")
 
 
 # ****************************************************************
@@ -134,7 +134,7 @@ azcam.api.config.update_pars(0, "azcamserver")
 from osu4k_custom import OSU4k
 
 osu4k = OSU4k()
-azcam.db.cli_cmds["osu4k"] = osu4k
+azcam.db.cli_objects["osu4k"] = osu4k
 
 # ****************************************************************
 # apps

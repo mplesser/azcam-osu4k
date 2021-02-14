@@ -17,8 +17,8 @@ class OSU4k(object):
         Creates osu4k object.
         """
 
-        azcam.api.osu4k = self
-        azcam.db.cli_cmds["osu4k"] = self
+        azcam.db.osu4k = self
+        azcam.db.cli_objects["osu4k"] = self
 
         return
 
