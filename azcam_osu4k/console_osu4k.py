@@ -41,6 +41,11 @@ dthread = threading.Thread(target=display.initialize, args=[])
 dthread.start()  # thread just for speed
 
 # ****************************************************************
+# console tools
+# ****************************************************************
+azcam.console_tools.load()
+
+# ****************************************************************
 # try to connect to azcam
 # ****************************************************************
 server = azcam.get_tools("server")
