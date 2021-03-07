@@ -18,7 +18,7 @@ class OSU4k(object):
         """
 
         azcam.db.osu4k = self
-        azcam.db.cli_objects["osu4k"] = self
+        azcam.db.cli_tools["osu4k"] = self
 
         return
 

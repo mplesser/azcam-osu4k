@@ -134,7 +134,7 @@ azcam.db.params.update_pars(0, "azcamserver")
 from osu4k_custom import OSU4k
 
 osu4k = OSU4k()
-azcam.db.cli_objects["osu4k"] = osu4k
+azcam.db.cli_tools["osu4k"] = osu4k
 
 # ****************************************************************
 # apps
