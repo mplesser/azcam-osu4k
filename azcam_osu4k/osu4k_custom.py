@@ -14,7 +14,7 @@ class OSU4k(object):
 
     def __init__(self):
         """
-        Creates osu4k object.
+        Creates osu4k tool.
         """
 
         azcam.db.osu4k = self
