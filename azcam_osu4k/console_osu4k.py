@@ -18,7 +18,7 @@ azcam.db.systemfolder = f"{os.path.dirname(__file__)}"
 azcam.utils.add_searchfolder(azcam.db.systemfolder, 0)  # top level only
 azcam.utils.add_searchfolder(os.path.join(azcam.db.systemfolder, "common"), 1)
 azcam.db.datafolder = os.path.join("/data", azcam.db.systemname)
-parfile = f"{azcam.db.datafolder}/parameters_{azcam.db.systemname}.ini"
+parfile = f"{azcam.db.datafolder}/parameters_console_{azcam.db.systemname}.ini"
 
 # ****************************************************************
 # add folders to search path
