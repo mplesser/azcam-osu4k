@@ -1,0 +1,4 @@
+OBSERVER Lesser   / Observers
+ORIGIN   MDM    / Observatory
+DETECTOR STA0500 / Detector name
+PROJECT  OSU4k    / Project name
