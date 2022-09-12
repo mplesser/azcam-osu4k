@@ -6,13 +6,13 @@ This repository contains *azcam-osu4k* *azcam* environment. It contains code and
 
 ## Installation
 
-Download the code (usually into the *azcam* root folder such as `c:\azcam`) and install via  poetry.
+Download the code (usually into the *azcam* root folder such as `c:\azcam`) and install.
 
 ```shell
 cd /azcam
 git clone https://github.com/mplesser/azcam-osu4k
 cd azcam-osu4k
-poetry install
+pip install -e .
 ```
 
 ## Links
