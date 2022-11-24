@@ -1,20 +1,16 @@
 [project]
 name = "azcam-osu4k"
-version = "22.1.1"
+version = "22.2.0"
 description = "Azcam extension for OSU4k camera"
 license = {file ="LICENSE"}
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 keywords=["ccd", "imaging", "astronomy", "sensors"]
 authors = [{name="Michael Lesser"},{email = "mlesser@arizona.edu"}]
 dependencies = [
     "ipython",
     "rich",
     "azcam",
-    "azcam-archon",
-    "azcam-ds9",
-    "azcam-fastapi",
-    "azcam-webtools",
 ]
 
 [project.urls]
