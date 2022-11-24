@@ -4,11 +4,10 @@ import os
 import sys
 import threading
 
-from azcam_ds9.ds9display import Ds9Display
-
 import azcam
 import azcam.console
 import azcam.shortcuts
+from azcam.tools.ds9.ds9display import Ds9Display
 
 try:
     i = sys.argv.index("-datafolder")
