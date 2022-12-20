@@ -12,7 +12,7 @@ from azcam.tools.archon.controller_archon import ControllerArchon
 from azcam.tools.archon.exposure_archon import ExposureArchon
 from azcam.tools.archon.tempcon_archon import TempConArchon
 from azcam.tools.ds9display import Ds9Display
-from azcam.tools.fastapi.fastapi_server import WebServer
+from azcam.tools.webserver.fastapi_server import WebServer
 from azcam.tools.webtools.status.status import Status
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
