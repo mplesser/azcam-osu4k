@@ -4,8 +4,8 @@ import sys
 import azcam
 import azcam.server
 import azcam.shortcuts
-from azcam.tools.cmdserver import CommandServer
-from azcam.tools.system import System
+from azcam.cmdserver import CommandServer
+from azcam.system import System
 from azcam.tools.instrument import Instrument
 from azcam.tools.telescope import Telescope
 from azcam.tools.archon.controller_archon import ControllerArchon
@@ -125,8 +125,8 @@ telescope.enabled = 0
 # ****************************************************************
 # read par file
 # ****************************************************************
-azcam.db.tools["parameters"].read_parfile(parfile)
-azcam.db.tools["parameters"].update_pars(0, "azcamserver")
+azcam.db.parameters.read_parfile(parfile)
+azcam.db.parameters.update_pars(0, "azcamserver")
 
 # ****************************************************************
 # define and start command server
