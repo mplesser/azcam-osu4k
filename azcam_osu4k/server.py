@@ -2,18 +2,18 @@ import os
 import sys
 
 import azcam
-import azcam.server
-import azcam.shortcuts
-from azcam.cmdserver import CommandServer
-from azcam.system import System
+import azcam_server.server
+import azcam_server.shortcuts
+from azcam_server.cmdserver import CommandServer
+from azcam.header import System
 from azcam.tools.instrument import Instrument
 from azcam.tools.telescope import Telescope
-from azcam.tools.archon.controller_archon import ControllerArchon
-from azcam.tools.archon.exposure_archon import ExposureArchon
-from azcam.tools.archon.tempcon_archon import TempConArchon
+from azcam_server.tools.archon.controller_archon import ControllerArchon
+from azcam_server.tools.archon.exposure_archon import ExposureArchon
+from azcam_server.tools.archon.tempcon_archon import TempConArchon
 from azcam.tools.ds9display import Ds9Display
-from azcam.tools.webserver.fastapi_server import WebServer
-from azcam.tools.webtools.status.status import Status
+from azcam_server.tools.webserver.fastapi_server import WebServer
+from azcam_server.tools.webtools.status.status import Status
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 
