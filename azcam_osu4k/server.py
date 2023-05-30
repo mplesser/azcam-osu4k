@@ -6,12 +6,12 @@ import azcam_server.server
 import azcam_server.shortcuts
 from azcam_server.cmdserver import CommandServer
 from azcam.header import System
-from azcam.tools.instrument import Instrument
-from azcam.tools.telescope import Telescope
+from azcam_server.tools.instrument import Instrument
+from azcam_server.tools.telescope import Telescope
 from azcam_server.tools.archon.controller_archon import ControllerArchon
 from azcam_server.tools.archon.exposure_archon import ExposureArchon
 from azcam_server.tools.archon.tempcon_archon import TempConArchon
-from azcam.tools.ds9display import Ds9Display
+from azcam_server.tools.ds9display import Ds9Display
 from azcam_server.tools.webserver.fastapi_server import WebServer
 from azcam_server.tools.webtools.status.status import Status
 
