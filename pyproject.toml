@@ -2,19 +2,15 @@
 name = "azcam-osu4k"
 version = "23.0"
 description = "Azcam extension for OSU4k camera"
-license = {file ="LICENSE"}
+license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.8"
-keywords=["ccd", "imaging", "astronomy", "sensors"]
-authors = [{name="Michael Lesser"},{email = "mlesser@arizona.edu"}]
-dependencies = [
-    "ipython==8.10",
-    "rich",
-    "azcam",
-]
+keywords = ["ccd", "imaging", "astronomy", "sensors"]
+authors = [{ name = "Michael Lesser" }, { email = "mlesser@arizona.edu" }]
+dependencies = ["ipython==8.10", "rich", "azcam"]
 
 [project.urls]
-Documentation = "https://mplesser.github.io/azcam/"
+Documentation = "https://azcam.readthedocs.io/"
 Repository = "https://github.com/mplesser/azcam-osu4k/"
 
 [build-system]
