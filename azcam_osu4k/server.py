@@ -2,18 +2,19 @@ import os
 import sys
 
 import azcam
-import azcam_server.server
-import azcam_server.shortcuts
-from azcam_server.cmdserver import CommandServer
+import azcam.utils
+import azcam.server.server
+import azcam.server.shortcuts
+from azcam.server.cmdserver import CommandServer
 from azcam.header import System
-from azcam_server.tools.instrument import Instrument
-from azcam_server.tools.telescope import Telescope
-from azcam_server.tools.archon.controller_archon import ControllerArchon
-from azcam_server.tools.archon.exposure_archon import ExposureArchon
-from azcam_server.tools.archon.tempcon_archon import TempConArchon
-from azcam_server.tools.ds9display import Ds9Display
-from azcam_server.tools.webserver.fastapi_server import WebServer
-from azcam_server.tools.webtools.status.status import Status
+from azcam.server.tools.instrument import Instrument
+from azcam.server.tools.telescope import Telescope
+from azcam.server.tools.archon.controller_archon import ControllerArchon
+from azcam.server.tools.archon.exposure_archon import ExposureArchon
+from azcam.server.tools.archon.tempcon_archon import TempConArchon
+from azcam.server.tools.ds9display import Ds9Display
+from azcam.server.tools.webserver.fastapi_server import WebServer
+from azcam.server.tools.webtools.status.status import Status
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 
@@ -74,7 +75,9 @@ display = Ds9Display()
 controller = ControllerArchon()
 controller.camserver.port = 4242
 controller.camserver.host = "10.0.0.2"
-controller.timing_file = os.path.join(azcam.db.datafolder, "archon_code", "OSU4k_1amp.acf")
+controller.timing_file = os.path.join(
+    azcam.db.datafolder, "archon_code", "OSU4k_1amp.acf"
+)
 controller.reset_flag = 1  # 0 for soft reset, 1 to upload code
 
 # ****************************************************************
