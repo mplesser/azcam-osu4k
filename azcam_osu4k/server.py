@@ -123,7 +123,7 @@ exposure.image.focalplane.wcs.scale2 = 1 * [sc]
 # telescope
 # ****************************************************************
 telescope = Telescope()
-telescope.enabled = 0
+telescope.is_enabled = 0
 
 # ****************************************************************
 # read par file
