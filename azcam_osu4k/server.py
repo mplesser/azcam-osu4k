@@ -68,6 +68,7 @@ azcam.log(f"Configuring server for OSU4k")
 # display
 # ****************************************************************
 display = Ds9Display()
+display.initialize()
 
 # ****************************************************************
 # controller
