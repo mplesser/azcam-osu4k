@@ -1,7 +1,7 @@
 [project]
 name = "azcam-osu4k"
 version = "24.0"
-description = "Azcam extension for OSU4k camera"
+description = "Azcam environment for OSU4k camera"
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.10"
