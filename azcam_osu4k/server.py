@@ -7,14 +7,15 @@ import azcam.server
 import azcam.shortcuts
 from azcam.cmdserver import CommandServer
 from azcam.header import System
-from azcam.server.tools.instrument import Instrument
-from azcam.server.tools.telescope import Telescope
-from azcam.server.tools.archon.controller_archon import ControllerArchon
-from azcam.server.tools.archon.exposure_archon import ExposureArchon
-from azcam.server.tools.archon.tempcon_archon import TempConArchon
-from azcam.server.tools.ds9display import Ds9Display
-from azcam.server.tools.webserver.fastapi_server import WebServer
-from azcam.server.tools.webtools.status.status import Status
+from azcam.tools.instrument import Instrument
+from azcam.tools.telescope import Telescope
+from azcam.tools.archon.controller_archon import ControllerArchon
+from azcam.tools.archon.exposure_archon import ExposureArchon
+from azcam.tools.archon.tempcon_archon import TempConArchon
+from azcam.tools.ds9display import Ds9Display
+from azcam.webtools.webserver import WebServer
+from azcam.webtools.status.status import Status
+from azcam.webtools.exptool.exptool import Exptool
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 
@@ -69,10 +70,10 @@ def setup():
 
     azcam.log(f"Configuring server for OSU4k")
 
-# ****************************************************************
-# display
-# ****************************************************************
-display = Ds9Display()
+    # ****************************************************************
+    # display
+    # ****************************************************************
+    display = Ds9Display()
 
     # ****************************************************************
     # controller
@@ -124,11 +125,11 @@ display = Ds9Display()
     exposure.image.focalplane.wcs.scale1 = 1 * [sc]
     exposure.image.focalplane.wcs.scale2 = 1 * [sc]
 
-# ****************************************************************
-# telescope
-# ****************************************************************
-telescope = Telescope()
-telescope.enabled = 0
+    # ****************************************************************
+    # telescope
+    # ****************************************************************
+    telescope = Telescope()
+    telescope.enabled = 0
 
     # ****************************************************************
     # read par file

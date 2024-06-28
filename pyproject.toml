@@ -1,6 +1,6 @@
 [project]
 name = "azcam-osu4k"
-version = "24.0"
+version = "24.1"
 description = "Azcam environment for OSU4k camera"
 license = { file = "LICENSE" }
 readme = "README.md"
