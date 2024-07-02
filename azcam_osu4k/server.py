@@ -158,15 +158,15 @@ def setup():
         webserver.message = f"for host {azcam.db.hostname}"
         webserver.datafolder = azcam.db.datafolder
         webserver.start()
-
         webstatus = Status(webserver)
-        webstatus.message = "Status for OSU4k"
         webstatus.initialize()
-
         exptool = Exptool(webserver)
         exptool.initialize()
 
         azcam.log("Started webserver applications")
+
+    # azcammonitor
+    azcam.db.monitor.register()
 
     # ****************************************************************
     # GUIs
