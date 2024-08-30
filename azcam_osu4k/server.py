@@ -13,9 +13,7 @@ from azcam.tools.archon.controller_archon import ControllerArchon
 from azcam.tools.archon.exposure_archon import ExposureArchon
 from azcam.tools.archon.tempcon_archon import TempConArchon
 from azcam.tools.ds9display import Ds9Display
-from azcam.webtools.webserver import WebServer
-from azcam.webtools.status.status import Status
-from azcam.webtools.exptool.exptool import Exptool
+from azcam.web.webserver_dash import WebServer
 
 from azcam_osu4k.detector_sta0500_osu4k import detector_sta0500_1amp
 
@@ -154,14 +152,7 @@ def setup():
         webserver = WebServer()
         webserver.port = 2403
         webserver.logcommands = 0
-        webserver.index = os.path.join(azcam.db.systemfolder, "index_OSU4k.html")
-        webserver.message = f"for host {azcam.db.hostname}"
-        webserver.datafolder = azcam.db.datafolder
         webserver.start()
-        webstatus = Status(webserver)
-        webstatus.initialize()
-        exptool = Exptool(webserver)
-        exptool.initialize()
 
         azcam.log("Started webserver applications")
 
