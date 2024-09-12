@@ -11,7 +11,6 @@ detector_sta0500 = {
     "ext_number": [3, 1, 4, 2],
     "det_number": [1, 1, 1, 1],
     "det_position": [[1, 1], [1, 1], [1, 1], [1, 1]],
-    "det_gap": [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]],
     "amp_position": [[1, 1], [1, 2], [2, 1], [2, 2]],
     "amp_pixel_position": [[1, 1], [1, 1], [1, 1], [1, 1]],
 }
@@ -29,7 +28,6 @@ detector_sta0500_1amp = {
     "ext_number": [1],
     "det_number": [1],
     "det_position": [[1, 1]],
-    "det_gap": [[0.0, 0.0]],
     "amp_position": [[1, 1]],
     "amp_pixel_position": [[1, 1]],
 }
@@ -47,7 +45,6 @@ detector_sta0500_2paramps_right = {
     "ext_number": [1, 2],
     "det_number": [1, 1],
     "det_position": [[1, 1], [1, 1]],
-    "det_gap": [[0.0, 0.0], [0.0, 0.0]],
     "amp_position": [[1, 1], [1, 2]],
     "amp_pixel_position": [[1, 1], [1, 1]],
 }
@@ -65,7 +62,6 @@ detector_sta0500_2seramps = {
     "ext_number": [1, 2],
     "det_number": [1, 1],
     "det_position": [[1, 1], [1, 1]],
-    "det_gap": [[0.0, 0.0], [0.0, 0.0]],
     "amp_position": [[1, 1], [2, 1]],
     "amp_pixel_position": [[1, 1], [1, 1]],
 }
